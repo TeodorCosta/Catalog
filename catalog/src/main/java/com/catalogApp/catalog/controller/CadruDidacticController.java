@@ -2,7 +2,6 @@ package com.catalogApp.catalog.controller;
 
 
 import com.catalogApp.catalog.entity.CadruDidactic;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import com.catalogApp.catalog.service.CadruDidacticService;
 import org.springframework.beans.factory.annotation.Autowired;
