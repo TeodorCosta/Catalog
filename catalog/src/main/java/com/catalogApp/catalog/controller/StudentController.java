@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class StudentController {
 
@@ -24,5 +26,11 @@ public class StudentController {
        studentService.saveStudent(student);
 
         return ("redirect:/nav");
+    }
+    @GetMapping("/studenti")
+    public String studenti(Model model) {
+        List<Student> studenti =studentService.getStudenti();
+        model.addAttribute("studenti",studenti);
+        return "studenti";
     }
 }

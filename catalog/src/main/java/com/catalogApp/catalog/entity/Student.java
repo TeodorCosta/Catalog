@@ -37,6 +37,8 @@ public class Student {
 
     private Float medie;
 
-
+    public String fullName(){
+        return this.nume +" "+ this.iniT + ". " + this.prenume;
+    }
 
 }

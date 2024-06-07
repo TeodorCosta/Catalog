@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Nume Intreg</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <tbody style="z-index:-2;" class="container" >
+        <tr  th:each="student: ${studenti}" class="row" >
+          <td  class="col-3" th:text="${student.fullName}"></td>
+        </tr>
+    </tbody>
+        
+
+</body>
+</html>
