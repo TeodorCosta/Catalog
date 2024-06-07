@@ -22,7 +22,7 @@ public class CadruDidacticController {
     public String cadruDidacticForm(Model model) {
 
         model.addAttribute("cadruDidactic", new CadruDidactic());
-        return "cadruDidactic_form";
+        return "cadruDidactic-form";
     }
 
     @PostMapping("save_cadruDidactic")
