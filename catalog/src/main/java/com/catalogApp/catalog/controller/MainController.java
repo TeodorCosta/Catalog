@@ -13,12 +13,13 @@ public class MainController {
 
     @GetMapping("/home")
     public String index(){
-        return" index";
+        return"index";
     }
     @GetMapping("/nav")
     public String nav(){
         return"nav_bar";
     }
+
 
 
 
