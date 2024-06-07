@@ -20,7 +20,7 @@ public class CadruDidacticService {
 
     }
 
-    public List<CadruDidactic> cadreDidactice() {
+    public List<CadruDidactic> getcadreDidactice() {
 
         return cadruDidacticRepository.findAll();
 
