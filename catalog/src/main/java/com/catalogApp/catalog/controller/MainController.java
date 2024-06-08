@@ -20,6 +20,13 @@ public class MainController {
         return"nav_bar";
     }
 
+    @GetMapping("/licente")
+    public String licente(){
+        return"licente";
+    }
+
+
+
 
 
 
