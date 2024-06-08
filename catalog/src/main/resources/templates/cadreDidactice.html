@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadru Didactic Nume Intreg</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d7ca018e94.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+<div class="container">
+    <a div th:each="cadru_didactic: ${cadru_didactic}" class="col-6 mb-3">
+       <i class="fa-sharp fa-solid fa-trash fa-xs"></i></a>
+       <div class="card">
+           <div class="card-body">
+               <div class="card-text" th:text="${cadru_didactic.fullName}">
+               </div>
+           </div>
+       </div>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
