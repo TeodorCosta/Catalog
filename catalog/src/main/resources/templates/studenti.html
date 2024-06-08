@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"></html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Nume Intreg</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d7ca018e94.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <tbody style="z-index:-2;" class="container" >
-        <tr  th:each="student: ${studenti}" class="row" >
-          <td  class="col-3" th:text="${student.fullName}"></td>
-        </tr>
-    </tbody>
-        
+<div class="container">
+    <div class="row" >
+        <a div  th:each="student: ${studenti}" class="col-6 mb-3" > <i class="fa-sharp fa-solid fa-trash fa-xs"></i></a>
 
+            <div class="card">
+                <div class="card-body">
+                    <div  class="card-text" th:text="${student.fullName}">
+                </div>
+              </div>
+          </div>
+        </adiv>
+    </div>
+</div>
 </body>
 </html>

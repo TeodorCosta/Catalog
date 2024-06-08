@@ -12,35 +12,35 @@
         <h2 class="title ">Student Form</h2>
         <form class="requires-validation" th:action="@{/save_student}" th:object="${student}" method="post">
             <input class="form-control" type="hidden"  id="id" placeholder="Id" th:field="*{id}">
-            <div class="mb-3 bm1">
+            <div class="mb-3 bm1 ptdiv">
                 <label for="nrMatricol" class="form-label">Nr. Matricol</label>
                 <input type="text" class="form-control" id="nrMatricol" name="nrMatricol" th:field="*{nrMatricol}" required>
             </div>
-            <div class="mb-3 bm2">
+            <div class="mb-3 bm2 ptdiv">
                 <label for="nume" class="form-label">Nume</label>
                 <input type="text" class="form-control" id="nume" name="nume" th:field="*{nume}" required>
             </div>
-            <div class="mb-3 bm3">
+            <div class="mb-3 bm3 ptdiv">
                 <label for="prenume" class="form-label">Prenume</label>
                 <input type="text" class="form-control" id="prenume" name="prenume" th:field="*{prenume}" required>
             </div>
-            <div class="mb-3 bm4">
+            <div class="mb-3 bm4 ptdiv">
                 <label for="iniT" class="form-label">Inițiala Tatălui</label>
                 <input type="text" class="form-control" id="iniT" name="iniT" th:field="*{iniT}" required>
             </div>
-            <div class="mb-3 bm5">
+            <div class="mb-3 bm5 ptdiv">
                 <label for="CNP" class="form-label">CNP</label>
                 <input type="text" class="form-control" id="CNP" name="CNP" th:field="*{CNP}" required>
             </div>
-            <div class="mb-3 bm6">
+            <div class="mb-3 bm6 ptdiv">
                 <label for="dataInscriere" class="form-label">Data Înscriere</label>
                 <input type="date" class="form-control" id="dataInscriere" name="dataInscriere"  th:field="*{dataInscriere}" required>
             </div>
-            <div class="mb-3 bm7">
+            <div class="mb-3 bm7 ptdiv">
                 <label for="ciclu" class="form-label">Ciclu</label>
                 <input type="text" class="form-control" id="ciclu" name="ciclu" th:field="*{ciclu}" required>
             </div>
-            <div class="mb-3 bm8">
+            <div class="mb-3 bm8 ptdiv">
                 <label for="medie" class="form-label">Medie</label>
                 <input type="number" step="0.01" class="form-control" id="medie" name="medie" th:field="*{medie}" required>
             </div>
