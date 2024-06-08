@@ -1,34 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Licențe</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  </head>
-
+  <!--Partea din head o sa o avem in cam toate paginile-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Licențe Facultăți</title>
+  <!-- Legatura cu bootstrap -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/d7ca018e94.js" crossorigin="anonymous"></script>
+  <style>
+        .card-header {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <div class="container mt-5">
-  <h2 class="title ">Licențe Facultăți</h2>
-  <div class="mb-3 bm6 ptdiv">
-    <label for="post" class="form-label">IESC</label>
-    <select class="form-control" id="post" name="post"  required>
-      <option value="Asistent universitar">Automatică și Informatică Aplicată</option>
-      <option value="Sef lucrari/Lector">Tehnologia Informației</option>
-      <option value="Conferentiar universitar">Calculatoare</option>
-    </select>
-  </div>
-  <div class="mb-3 bm6 ptdiv">
-    <label for="post" class="form-label">Economie</label>
-    <select class="form-control" id="post" name="post"  required>
-      <option value="">Automatică și Informatică Aplicată</option>
-      <option value="">Tehnologia Informației</option>
-      <option value="">Calculatoare</option>
-    </select>
-  </div>
+  <h2>Programe de Licența</h2>
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <h5 class="mb-0">
+          Inginerie Electrică și Știința Calculatoarelor
+        </h5>
+      </div>
 
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <ul>
+            <li>
+              <a href="#collapseAutomatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAutomatica">Automatică și Informatică Aplicată</a>
+              <ul class="list-group collapse" id="collapseAutomatica">
+                <li class="list-group-item">
+                  <a href="#collapseAn1Automatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1Automatica">Anul 1</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#collapseAn2Automatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2Automatica">Anul 2</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#collapseAn3Automatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn3Automatica">Anul 3</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#collapseAn4Automatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn4Automatica">Anul 4</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#collapseTI" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTI">Tehnologia Informației</a>
+              <ul class="list-group collapse" id="collapseTI">
+                <li class="list-group-item">
+                  <a href="#collapseAn1TI" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1TI">Anul 1</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#collapseAn2TI" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2TI">Anul 2</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#collapseAn3TI" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn3TI">Anul 3</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#collapseAn4TI" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn4TI">Anul 4</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#collapseRobotica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseRobotica">Robotică</a>
+              <ul class="list-group collapse" id="collapseRobotica">
+                <li class="list-group-item">
+                  <a href="#collapseAn1Robotica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1Robotica">Anul 1</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#collapseAn2Robotica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2Robotica">Anul 2</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#collapseAn3Robotica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn3Robotica">Anul 3</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#collapseAn4Robotica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn4Robotica">Anul 4</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <h5 class="mb-0">
+          Științe Economice și Administrarea Afacerilor
+        </h5>
+      </div>
+
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          <ul>
+            <li>
+              <a href="#collapseContabilitate" data-toggle="collapse" aria-expanded="false" aria-controls="collapseContabilitate">Contabilitate și Informatică de gestiune</a>
+              <ul class="list-group collapse" id="collapseContabilitate">
+                <li class="list-group-item">
+                  <a href="#collapseAn1Contabilitate" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1Contabilitate">Anul 1</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#collapseAn2Contabilitate" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2Contabilitate">Anul 2</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#collapseAn3Contabilitate" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn3Contabilitate">Anul 3</a>
+              </ul>
+            </li>
+            <li>
+              <a href="#collapseInformatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseInformatica">Tehnologia Informației</a>
+              <ul class="list-group collapse" id="collapseInformatica">
+                <li class="list-group-item">
+                  <a href="#collapseAn1Informatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1Informatica">Anul 1</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#collapseAn2Informatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2Informatica">Anul 2</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#collapseAn3Informatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn3Informatica">Anul 3</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#collapseFinante" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFinante">Finanțe Bănci</a>
+              <ul class="list-group collapse" id="collapseFinante">
+                <li class="list-group-item">
+                  <a href="#collapseAn1Finante" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1Finante">Anul 1</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#collapseAn2Finante" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2Finante">Anul 2</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#collapseAn3Finante" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn3Finante">Anul 3</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+</div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
