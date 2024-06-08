@@ -25,7 +25,7 @@ public class CadruDidacticController {
         return "cadruDidactic-form";
     }
 
-    @PostMapping("save_cadruDidactic")
+    @PostMapping("/save_cadruDidactic")
     public String savecadruDidactic(CadruDidactic cadruDidactic) {
 
         cadruDidacticService.saveCadruDidactic(cadruDidactic);
