@@ -11,6 +11,23 @@
 <div>
     <div>
         <div class="container">
+            <div class="card row" style="margin-top:7px;margin-bottom:3px;margin-right:3px;margin-left:3px;">
+                <div class="card-body" style="display:flex;">
+                    <form class="requires-validation col" action="/search" method="post" >
+                        <select class="form-control" id="post" name="post"  required>
+                            <option value="4LF421">4LF421</option>
+                            <option value="4LF422">4LF422</option>
+                            <option value="4LF423">4LF423</option>
+                            <option value="4LF424">4LF424</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary col">Search grupa</button>
+                    </form>
+                    <form class="requires-validation col" action="/search" method="post" >
+                        <input type="text" name="searchItem" placeholder="..." value="Nume" class="form-control col">
+                        <button type="submit" class="btn btn-primary col">Search nume</button>
+                    </form>
+                    </div>
+                </div>
             <div th:each="student: ${studenti}" class="mb-3">
                 <div class="card row" style="margin:3px;">
                     <div class="card-body" style="display:flex;">
