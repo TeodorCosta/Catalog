@@ -37,8 +37,11 @@
                 <input type="date" class="form-control" id="dataInscriere" name="dataInscriere"  th:field="*{dataInscriere}" required>
             </div>
             <div class="mb-3 bm7 ptdiv">
-                <label for="ciclu" class="form-label">Ciclu</label>
-                <input type="text" class="form-control" id="ciclu" name="ciclu" th:field="*{ciclu}" required>
+                <label for="ciclu" class="form-label">Ciclu de Învățământ</label>
+                <select class="form-control" id="post" name="post" th:field="*{ciclu}" required>
+                    <option value="l">Licență</option>
+                    <option value="m">Masterat</option>
+                </select>
             </div>
             <div class="mb-3 bm8 ptdiv">
                 <label for="medie" class="form-label">Medie</label>
