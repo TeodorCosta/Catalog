@@ -1,45 +1,48 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-   <!--Partea din head o sa o avem in cam toate paginile-->
+    <!--Partea din head o sa o avem in cam toate paginile-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Mobile Application</title>
     <!-- Legatura cu bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Include CSS personalizat dacă este necesar- 
+    <!-- Include CSS personalizat dacă este necesar-
      REFERINTA SE VA FACE DOAR CA AICI-->
     <link rel="stylesheet" th:href="@{/nav.css}" />
 </head>
-</head>
 <body>
-    <!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">
+        <img th:src="@{/images/Sigla_UNITBV1.png}" alt="Logo" style="height: 40px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Ciclu de învățământ
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" th:href="@{/licente}">Licență</a>
+                    <a class="dropdown-item" th:href="@{/masterate}">Masterat</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-center" th:href="@{/}">Cadre didactice</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-center" th:href="@{/}">CATALOG</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand">
-            <img th:src="@{/images/Sigla_UNITBV1.png}" alt="Logo" style="height: 40px;">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link text-center" th:href="@{/}">Ciclu de învățământ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-center" th:href="@{/}">Cadre didactice</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-center" th:href="@{/}">CATALOG</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
