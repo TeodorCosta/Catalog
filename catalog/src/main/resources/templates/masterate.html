@@ -1,10 +1,93 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/dashboard}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
+    <!--Partea din head o sa o avem in cam toate paginile-->
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Programe de Masterat</title>
+    <!-- Legatura cu bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d7ca018e94.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/student-form.css}" />
 </head>
 <body>
-
+<div class="container mt-5">
+    <h2 class="text-center">Programe de Masterat</h2>
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header2 bm3 ptdiv" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <h5 class="mb-0 text-center">
+                    Inginerie Electrică și Știința Calculatoarelor
+                </h5>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <ul class="list-unstyled ptdiv">
+                        <li class="text-center">
+                            <a href="#collapseSistemeDistribuite" data-toggle="collapse" aria-expanded="false" aria-controls="collapseSistemeDistribuite" class="custom-link">Cyber Security(EN)</a>
+                            <ul class="list-group collapse" id="collapseSistemeDistribuite">
+                                <li class="list-group-item">
+                                    <a href="#collapseAn1SistemeDistribuite" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1SistemeDistribuite" class="custom-link">Anul 1</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#collapseAn2SistemeDistribuite" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2SistemeDistribuite" class="custom-link">Anul 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="text-center">
+                            <a href="#collapseIA" data-toggle="collapse" aria-expanded="false" aria-controls="collapseIA" class="custom-link">Sisteme electrice avansate(lb. engleza)</a>
+                            <ul class="list-group collapse" id="collapseIA">
+                                <li class="list-group-item">
+                                    <a href="#collapseAn1IA" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1IA" class="custom-link">Anul 1</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#collapseAn2IA" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2IA" class="custom-link">Anul 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header2 bm3 ptdiv " id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <h5 class="mb-0 text-center">
+                    Științe Economice și Administrarea Afacerilor
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <ul class="list-unstyled ptdiv ">
+                        <li class="text-center">
+                            <a href="#collapseContabilitate" data-toggle="collapse" aria-expanded="false" aria-controls="collapseContabilitate" class="custom-link">Management și strategii de afaceri</a>
+                            <ul class="list-group collapse" id="collapseContabilitate">
+                                <li class="list-group-item">
+                                    <a href="#collapseAn1Contabilitate" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1Contabilitate" class="custom-link">Anul 1</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#collapseAn2Contabilitate" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2Contabilitate" class="custom-link">Anul 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="text-center">
+                            <a href="#collapseFinante" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFinante" class="custom-link">Management financiar bancar</a>
+                            <ul class="list-group collapse" id="collapseFinante">
+                                <li class="list-group-item">
+                                    <a href="#collapseAn1Finante" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1Finante" class="custom-link">Anul 1</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#collapseAn2Finante" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2Finante" class="custom-link">Anul 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
