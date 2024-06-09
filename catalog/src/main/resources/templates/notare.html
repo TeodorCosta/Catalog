@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Form</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/student-form.css}" />
+</head>
+<body>
+<div class="container mt-5">
+  <h2 class="title ">Student Form</h2>
+  <form class="requires-validation" id="myForm" action="#" th:action="@{/save_nota}" th:object="${nota2}" method="post">
+
+
+
+    <div class="controls">
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="disciplina">Disciplina</label>
+            <select id="form_need" class="form-control" name="dropdown" th:field="*{disciplina_id}">
+              <option  th:each="disciplina : ${discipline}" th:value="${disciplina.id}"
+                      th:text="${disciplina.acronim}">
+              </option>
+            </select>
+            <label for="student">Student</label>
+            <select id="form_need"  class="form-control" name="dropdown" th:field="*{student_id}">
+              <option th:each="student : ${studenti}" th:value="${student.id}"
+                      th:text="${student.fullName}"
+                      >
+              </option>
+            </select>
+            <div class="mb-3 bm3 ptdiv">
+              <label for="nota" class="form-label">Nota</label>
+              <input type="number" class="form-control" id="nota" name="nota" th:field="*{valoare}" required>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+
+          <input type="submit" class="btn btn-info btn-send  pt-2 btn-block
+                            " value="Adauga Ore" >
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </form>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
