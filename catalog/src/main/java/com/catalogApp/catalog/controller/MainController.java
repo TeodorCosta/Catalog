@@ -25,6 +25,11 @@ public class MainController {
         return"licente";
     }
 
+    @GetMapping("/masterate")
+    public String masterate(){
+        return"masterate";
+    }
+
 
 
 
