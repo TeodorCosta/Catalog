@@ -19,6 +19,10 @@ public class MainController {
     public String nav(){
         return"nav_bar";
     }
+    @GetMapping("/dashboard")
+    public String dashboard() {
+        return "dashboard";
+    }
 
     @GetMapping("/licente")
     public String licente(){

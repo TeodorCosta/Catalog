@@ -12,10 +12,10 @@
     <link rel="stylesheet" th:href="@{/nav.css}" />
 </head>
 <body>
-<!-- Navbar -->
+<!-- Navbar --><header th:fragment="header">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand">
-        <img th:src="@{/images/Sigla_UNITBV1.png}" alt="Logo" style="height: 60px;">
+        <img th:src="@{/images/Sigla_UNITBV1.png}" alt="Logo" style="height: 90px;">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,15 +32,28 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-center" th:href="@{/}">Cadre didactice</a>
+                <a class="nav-link text-center" th:href="@{/cadreDidactice}">Cadre didactice</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-center" th:href="@{/}">CATALOG</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-center" th:href="@{/programeStudiu}">Programe De Studiu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-center" th:href="@{/studenti}">Studenti</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-center" th:href="@{/discipline}">Discipline</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-center" th:href="@{/notare}">Notare</a>
+            </li>
+
         </ul>
     </div>
 </nav>
-
+</header>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

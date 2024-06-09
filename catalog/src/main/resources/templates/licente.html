@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/dashboard}">
 <head>
   <!--Partea din head o sa o avem in cam toate paginile-->
   <meta charset="UTF-8">
@@ -11,7 +11,7 @@
   <link rel="stylesheet" th:href="@{/student-form.css}" />
 </head>
 <body>
-<div class="container mt-5">
+<div class="container mt-5" layout:fragment="content">
   <h2 class="text-center">Programe de Licența</h2>
   <div class="accordion" id="accordionExample">
     <div class="card">

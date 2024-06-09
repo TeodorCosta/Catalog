@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/dashboard}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
 <body>
 <div>
     <div>
-        <div class="container">
+        <div class="container" layout:fragment="content">
             <div class="card row" style="margin-top:7px;margin-bottom:3px;margin-right:3px;margin-left:3px;">
                 <div class="card-body" style="display:flex;">
                     <form class="requires-validation col" action="/search" method="post" >
