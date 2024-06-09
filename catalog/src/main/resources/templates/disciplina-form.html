@@ -28,6 +28,20 @@
             <label for="iniT" class="form-label">Credite</label>
             <input type="number" class="form-control" id="iniT" name="iniT" th:field="*{credite}" required>
         </div>
+        <div class="mb-3 bm7 ptdiv">
+            <label for="programStudiu" class="form-label">Program de Studii</label>
+            <select class="form-control" id="programStudiu" name="programStudiu" th:field="*{programStudiu}" required>
+                <option th:each="programStudiu : ${programeStudiu}" th:value="${programStudiu.id}" th:text="${programStudiu.nume}"></option>
+            </select>
+        </div>
+        <div class="mb-3 bm4 ptdiv">
+            <label for="iniT" class="form-label">An</label>
+            <input type="number" class="form-control" id="an" name="iniT" th:field="*{an}" required>
+        </div>
+        <div class="mb-3 bm4 ptdiv">
+            <label for="iniT" class="form-label">Semestrul</label>
+            <input type="number" class="form-control" id="sem" name="iniT" th:field="*{sem}" required>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

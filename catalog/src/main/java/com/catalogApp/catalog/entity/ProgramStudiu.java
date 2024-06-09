@@ -2,8 +2,6 @@ package com.catalogApp.catalog.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-
 import java.util.UUID;
 
 @Builder
@@ -14,22 +12,17 @@ import java.util.UUID;
 @Entity
 @Table
 @ToString
-public class Disciplina {
+public class ProgramStudiu {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String codulDisciplinei;
-    private String materie;
+    private Integer durata;
 
-    private String acronim;
+    private String nume;
 
-    private Integer credite;
 
-    private Integer an;
 
-    @ManyToOne
-    private ProgramStudiu programStudiu;
 
-    private Integer sem;
 }

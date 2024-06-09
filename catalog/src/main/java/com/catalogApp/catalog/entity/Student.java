@@ -37,6 +37,11 @@ public class Student {
 
     private Float medie;
 
+    private Integer an;
+
+    @ManyToOne
+    private ProgramStudiu programStudiu;
+
     public String fullName(){
         return this.nume +" "+ this.iniT + ". " + this.prenume;
     }

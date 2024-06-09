@@ -43,6 +43,12 @@
                     <option value="m">Masterat</option>
                 </select>
             </div>
+            <div class="mb-3 bm7 ptdiv">
+                <label for="ciclu" class="form-label">Program de Studii</label>
+                <select class="form-control" id="programStudiu" name="programStudiu" th:field="*{programStudiu}" required>
+                    <option th:each="programStudiu : ${programeStudiu}" th:value="${programStudiu.id}" th:text="${programStudiu.nume}"></option>
+                </select>
+            </div>
             <div class="mb-3 bm8 ptdiv">
                 <label for="medie" class="form-label">Medie</label>
                 <input type="number"  class="form-control" id="medie" name="medie" th:field="*{medie}" required>
