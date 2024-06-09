@@ -33,3 +33,24 @@
 .bm8 {
     background-color: #CAF0F8;
 }
+.card-header {
+            cursor: pointer;
+             color: black;
+              text-decoration: none;
+        }
+
+
+.card-body a:hover {
+                     color: black;
+                    text-decoration: underline;
+                    }
+                    .custom-link {
+                              color: black;
+                              text-decoration: none;
+                          }
+ .custom-link:hover,
+ .custom-link:focus,
+ .custom-link:active {
+                      color: black;
+                      text-decoration: none;
+                      }
