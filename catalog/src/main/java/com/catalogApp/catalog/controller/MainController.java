@@ -1,15 +1,24 @@
 package com.catalogApp.catalog.controller;
 
 
+import com.catalogApp.catalog.entity.ProgramStudiu;
+import com.catalogApp.catalog.service.ProgramStudiuService;
 import com.catalogApp.catalog.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class MainController {
     @Autowired
     StudentService studentService;
+
+    @Autowired
+    ProgramStudiuService programStudiuService;
 
     @GetMapping("/home")
     public String index(){
@@ -25,7 +34,27 @@ public class MainController {
     }
 
     @GetMapping("/licente")
-    public String licente(){
+    public String licente(Model model){
+        List<ProgramStudiu> programeStudiuIESC = programStudiuService.getProgrameStudiu().stream()
+                .filter(programStudiu -> "IESC".equals(programStudiu.getFacultate()))
+                .collect(Collectors.toList());
+        List<ProgramStudiu> programeStudiuDPM = programStudiuService.getProgrameStudiu().stream()
+                .filter(programStudiu -> "DPM".equals(programStudiu.getFacultate()))
+                .collect(Collectors.toList());
+        List<ProgramStudiu> programeStudiuMED = programStudiuService.getProgrameStudiu().stream()
+                .filter(programStudiu -> "MED".equals(programStudiu.getFacultate()))
+                .collect(Collectors.toList());
+        List<ProgramStudiu> programeStudiuECO= programStudiuService.getProgrameStudiu().stream()
+                .filter(programStudiu -> "ECO".equals(programStudiu.getFacultate()))
+                .collect(Collectors.toList());
+        List<ProgramStudiu> programeStudiuMuzica= programStudiuService.getProgrameStudiu().stream()
+                .filter(programStudiu -> "ECO".equals(programStudiu.getFacultate()))
+                .collect(Collectors.toList());
+        model.addAttribute("programeStudiuIESC",programeStudiuIESC);
+        model.addAttribute("programeStudiuDPM",programeStudiuDPM);
+        model.addAttribute("programeStudiuMED",programeStudiuMED);
+        model.addAttribute("programeStudiuECO",programeStudiuECO);
+        model.addAttribute("programeStudiuMuzica",programeStudiuMuzica);
         return"licente";
     }
 

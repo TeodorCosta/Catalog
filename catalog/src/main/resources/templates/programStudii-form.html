@@ -21,6 +21,16 @@
       <label for="prenume" class="form-label">Durata</label>
       <input type="number" class="form-control" id="prenume" name="prenume" th:field="*{durata}" required>
     </div>
+    <div class="mb-3 bm6 ptdiv">
+      <label for="post" class="form-label">Facultate</label>
+      <select class="form-control" id="post" name="post" th:field="*{facultate}" required>
+        <option value="IESC">Inginerie Electrică și Știința Calculatoarelor</option>
+        <option value="ECO">Științe Economice și Administrarea Afacerilor</option>
+        <option value="DPM">Design de Produs și Mediu</option>
+        <option value="Muzica">Muzică</option>
+        <option value="Med">Medicină</option>
+      </select>
+    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>

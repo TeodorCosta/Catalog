@@ -18,6 +18,8 @@ public class ProgramStudiu {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    private String facultate;
+
     private Integer durata;
 
     private String nume;
