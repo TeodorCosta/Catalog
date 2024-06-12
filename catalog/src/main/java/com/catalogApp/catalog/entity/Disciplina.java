@@ -28,6 +28,8 @@ public class Disciplina {
 
     private Integer an;
 
+
+
     @ManyToOne
     private ProgramStudiu programStudiu;
 

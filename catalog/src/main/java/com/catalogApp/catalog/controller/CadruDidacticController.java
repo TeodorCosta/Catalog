@@ -44,7 +44,7 @@ public class CadruDidacticController {
         return "cadreDidactice";
 
     }
-    @GetMapping("/delete_cadreDidactice/{id}")
+    @GetMapping("/delete_cadruDidactic/{id}")
     public String delete_cadruDidactic(@PathVariable UUID id) {
         cadruDidacticService.delete_cadruDidactic(id);
         return("redirect:/cadreDidactice");
