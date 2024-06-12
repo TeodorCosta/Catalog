@@ -9,11 +9,11 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Include CSS personalizat dacă este necesar-
      REFERINTA SE VA FACE DOAR CA AICI-->
-    <link rel="stylesheet" th:href="@{/nav.css}" />
+    <link rel="stylesheet" th:href="@{/student-form.css}" />
 </head>
 <body>
-<!-- Navbar --><header th:fragment="header">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<header th:fragment="header" style="margin-bottom: 150px;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <a class="navbar-brand">
         <img th:src="@{/images/Sigla_UNITBV1.png}" alt="Logo" style="height: 90px;">
     </a>
@@ -54,6 +54,7 @@
     </div>
 </nav>
 </header>
+<div class="navbarheight"></div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
