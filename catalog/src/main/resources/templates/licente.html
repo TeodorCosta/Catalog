@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/dashboard}">
 <head>
-  <!--Partea din head o sa o avem in cam toate paginile-->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Programe de Licență</title>
-  <!-- Legatura cu bootstrap -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/d7ca018e94.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" th:href="@{/student-form.css}" />
@@ -14,66 +12,20 @@
 <div class="container mt-5" layout:fragment="content">
   <h2 class="text-center">Programe de Licența</h2>
   <div class="accordion" id="accordionExample">
+
+    <!-- Section for IESC Faculty -->
     <div class="card">
-      <div class="card-header2 bm3 ptdiv" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-
-        <h5 class="mb-0 text-center">
-          Inginerie Electrică și Știința Calculatoarelor
-        </h5>
-
+      <div class="card-header2 bm3 ptdiv" id="headingOne" data-toggle="collapse" data-target="#collapseIESC" aria-expanded="true" aria-controls="collapseIESC">
+        <h5 class="mb-0 text-center">Inginerie Electrică și Știința Calculatoarelor</h5>
       </div>
-
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div id="collapseIESC" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
         <div class="card-body">
           <ul class="list-unstyled ptdiv">
-            <li class="text-center">
-              <a href="#collapseAutomatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAutomatica" class="custom-link">Automatică și Informatică Aplicată</a>
-              <ul class="list-group collapse" id="collapseAutomatica">
-                <li class="list-group-item">
-                  <a href="#collapseAn1Automatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1Automatica" class="custom-link">Anul 1</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#collapseAn2Automatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2Automatica" class="custom-link">Anul 2</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#collapseAn3Automatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn3Automatica" class="custom-link">Anul 3</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#collapseAn4Automatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn4Automatica" class="custom-link">Anul 4</a>
-                </li>
-              </ul>
-            </li>
-            <li class="text-center">
-              <a href="#collapseTI" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTI" class="custom-link">Tehnologia Informației</a>
-              <ul class="list-group collapse" id="collapseTI">
-                <li class="list-group-item">
-                  <a href="#collapseAn1TI" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1TI" class="custom-link">Anul 1</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#collapseAn2TI" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2TI" class="custom-link">Anul 2</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#collapseAn3TI" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn3TI" class="custom-link">Anul 3</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#collapseAn4TI" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn4TI" class="custom-link">Anul 4</a>
-                </li>
-              </ul>
-            </li>
-            <li class="text-center">
-              <a href="#collapseRobotica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseRobotica" class="custom-link">Robotică</a>
-              <ul class="list-group collapse" id="collapseRobotica">
-                <li class="list-group-item">
-                  <a href="#collapseAn1Robotica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1Robotica" class="custom-link">Anul 1</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#collapseAn2Robotica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2Robotica" class="custom-link">Anul 2</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#collapseAn3Robotica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn3Robotica" class="custom-link">Anul 3</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#collapseAn4Robotica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn4Robotica" class="custom-link">Anul 4</a>
+            <li class="text-center" th:each="programStudiu : ${programeStudiuIESC}">
+              <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
+              <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
+                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}">
+                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Anul ' + ${i}"></a>
                 </li>
               </ul>
             </li>
@@ -81,65 +33,85 @@
         </div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-header2 bm3 ptdiv " id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        <h5 class="mb-0 text-center">
-          Științe Economice și Administrarea Afacerilor
-        </h5>
-      </div>
 
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+
+    <!-- Section for DPM Faculty -->
+    <div class="card">
+      <div class="card-header2 bm3 ptdiv" id="headingTwo" data-toggle="collapse" data-target="#collapseDPM" aria-expanded="false" aria-controls="collapseDPM">
+        <h5 class="mb-0 text-center">Design și Producție Media</h5>
+      </div>
+      <div id="collapseDPM" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
         <div class="card-body">
-          <ul class="list-unstyled ptdiv ">
-            <li class="text-center">
-              <a href="#collapseContabilitate" data-toggle="collapse" aria-expanded="false" aria-controls="collapseContabilitate" class="custom-link">Contabilitate și Informatică de gestiune</a>
-              <ul class="list-group collapse" id="collapseContabilitate">
-                <li class="list-group-item">
-                  <a href="#collapseAn1Contabilitate" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1Contabilitate" class="custom-link">Anul 1</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#collapseAn2Contabilitate" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2Contabilitate" class="custom-link">Anul 2</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#collapseAn3Contabilitate" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn3Contabilitate" class="custom-link">Anul 3</a>
-              </ul>
-            </li>
-            <li class="text-center">
-              <a href="#collapseInformatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseInformatica" class="custom-link">Tehnologia Informației</a>
-              <ul class="list-group collapse" id="collapseInformatica">
-                <li class="list-group-item">
-                  <a href="#collapseAn1Informatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1Informatica" class="custom-link">Anul 1</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#collapseAn2Informatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2Informatica" class="custom-link">Anul 2</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#collapseAn3Informatica" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn3Informatica" class="custom-link">Anul 3</a>
-                </li>
-              </ul>
-            </li>
-            <li class="text-center">
-              <a href="#collapseFinante" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFinante" class="custom-link">Finanțe Bănci</a>
-              <ul class="list-group collapse" id="collapseFinante">
-                <li class="list-group-item">
-                  <a href="#collapseAn1Finante" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn1Finante" class="custom-link">Anul 1</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#collapseAn2Finante" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn2Finante" class="custom-link">Anul 2</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#collapseAn3Finante" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAn3Finante" class="custom-link">Anul 3</a>
-                </li>
+          <ul class="list-unstyled ptdiv">
+            <li class="text-center" th:each="programStudiu : ${programeStudiuDPM}">
+              <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
+              <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
+                <li class="list-group-item" th:text="${programStudiu.nume}"></li>
               </ul>
             </li>
           </ul>
         </div>
       </div>
     </div>
+
+    <!-- Section for MED Faculty -->
+    <div class="card">
+      <div class="card-header2 bm3 ptdiv" id="headingThree" data-toggle="collapse" data-target="#collapseMED" aria-expanded="false" aria-controls="collapseMED">
+        <h5 class="mb-0 text-center">Medicină</h5>
+      </div>
+      <div id="collapseMED" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+          <ul class="list-unstyled ptdiv">
+            <li class="text-center" th:each="programStudiu : ${programeStudiuMED}">
+              <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
+              <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
+                <li class="list-group-item" th:text="${programStudiu.nume}"></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section for ECO Faculty -->
+    <div class="card">
+      <div class="card-header2 bm3 ptdiv" id="headingFour" data-toggle="collapse" data-target="#collapseECO" aria-expanded="false" aria-controls="collapseECO">
+        <h5 class="mb-0 text-center">Științe Economice și Administrarea Afacerilor</h5>
+      </div>
+      <div id="collapseECO" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+        <div class="card-body">
+          <ul class="list-unstyled ptdiv">
+            <li class="text-center" th:each="programStudiu : ${programeStudiuECO}">
+              <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
+              <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
+                <li class="list-group-item" th:text="${programStudiu.nume}"></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section for Muzica Faculty -->
+    <div class="card">
+      <div class="card-header2 bm3 ptdiv" id="headingFive" data-toggle="collapse" data-target="#collapseMuzica" aria-expanded="false" aria-controls="collapseMuzica">
+        <h5 class="mb-0 text-center">Muzică</h5>
+      </div>
+      <div id="collapseMuzica" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+        <div class="card-body">
+          <ul class="list-unstyled ptdiv">
+            <li class="text-center" th:each="programStudiu : ${programeStudiuMuzica}">
+              <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
+              <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
+                <li class="list-group-item" th:text="${programStudiu.nume}"></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
-</div>
-</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

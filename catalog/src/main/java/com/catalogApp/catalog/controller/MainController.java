@@ -36,19 +36,23 @@ public class MainController {
     @GetMapping("/licente")
     public String licente(Model model){
         List<ProgramStudiu> programeStudiuIESC = programStudiuService.getProgrameStudiu().stream()
-                .filter(programStudiu -> "IESC".equals(programStudiu.getFacultate()))
+                .filter(programStudiu -> "IESC".equals(programStudiu.getFacultate()) && programStudiu.isLicenta())
                 .collect(Collectors.toList());
+
         List<ProgramStudiu> programeStudiuDPM = programStudiuService.getProgrameStudiu().stream()
-                .filter(programStudiu -> "DPM".equals(programStudiu.getFacultate()))
+                .filter(programStudiu -> "DPM".equals(programStudiu.getFacultate()) && programStudiu.isLicenta())
                 .collect(Collectors.toList());
+
         List<ProgramStudiu> programeStudiuMED = programStudiuService.getProgrameStudiu().stream()
-                .filter(programStudiu -> "MED".equals(programStudiu.getFacultate()))
+                .filter(programStudiu -> "Med".equals(programStudiu.getFacultate()) && programStudiu.isLicenta())
                 .collect(Collectors.toList());
-        List<ProgramStudiu> programeStudiuECO= programStudiuService.getProgrameStudiu().stream()
-                .filter(programStudiu -> "ECO".equals(programStudiu.getFacultate()))
+
+        List<ProgramStudiu> programeStudiuECO = programStudiuService.getProgrameStudiu().stream()
+                .filter(programStudiu -> "ECO".equals(programStudiu.getFacultate()) && programStudiu.isLicenta())
                 .collect(Collectors.toList());
-        List<ProgramStudiu> programeStudiuMuzica= programStudiuService.getProgrameStudiu().stream()
-                .filter(programStudiu -> "ECO".equals(programStudiu.getFacultate()))
+
+        List<ProgramStudiu> programeStudiuMuzica = programStudiuService.getProgrameStudiu().stream()
+                .filter(programStudiu -> "Muzica".equals(programStudiu.getFacultate()) && programStudiu.isLicenta())
                 .collect(Collectors.toList());
         model.addAttribute("programeStudiuIESC",programeStudiuIESC);
         model.addAttribute("programeStudiuDPM",programeStudiuDPM);
@@ -59,7 +63,31 @@ public class MainController {
     }
 
     @GetMapping("/masterate")
-    public String masterate(){
+    public String masterate(Model model){
+        List<ProgramStudiu> programeStudiuIESC = programStudiuService.getProgrameStudiu().stream()
+                .filter(programStudiu -> "IESC".equals(programStudiu.getFacultate()) && !programStudiu.isLicenta())
+                .collect(Collectors.toList());
+
+        List<ProgramStudiu> programeStudiuDPM = programStudiuService.getProgrameStudiu().stream()
+                .filter(programStudiu -> "DPM".equals(programStudiu.getFacultate()) && !programStudiu.isLicenta())
+                .collect(Collectors.toList());
+
+        List<ProgramStudiu> programeStudiuMED = programStudiuService.getProgrameStudiu().stream()
+                .filter(programStudiu -> "Med".equals(programStudiu.getFacultate()) && !programStudiu.isLicenta())
+                .collect(Collectors.toList());
+
+        List<ProgramStudiu> programeStudiuECO = programStudiuService.getProgrameStudiu().stream()
+                .filter(programStudiu -> "ECO".equals(programStudiu.getFacultate()) && !programStudiu.isLicenta())
+                .collect(Collectors.toList());
+
+        List<ProgramStudiu> programeStudiuMuzica = programStudiuService.getProgrameStudiu().stream()
+                .filter(programStudiu -> "Muzica".equals(programStudiu.getFacultate()) && !programStudiu.isLicenta())
+                .collect(Collectors.toList());
+        model.addAttribute("programeStudiuIESC",programeStudiuIESC);
+        model.addAttribute("programeStudiuDPM",programeStudiuDPM);
+        model.addAttribute("programeStudiuMED",programeStudiuMED);
+        model.addAttribute("programeStudiuECO",programeStudiuECO);
+        model.addAttribute("programeStudiuMuzica",programeStudiuMuzica);
         return"masterate";
     }
 
