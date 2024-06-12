@@ -35,10 +35,10 @@
                             <div class="card-text col" style="text-align: center" th:text="${student.fullName}"></div>
                         </a>
                         <div class="col-4 d-flex">
-                            <a href="student-form" class="col-2 text-decoration-none text-reset">
+                            <a th:href="@{|/deleteStudent/${student.id}|}" class="col-2 text-decoration-none text-reset">
                                 <i class="fa-sharp fa-solid fa-trash"></i>
                             </a>
-                            <a href="student-form" class="col-2 text-decoration-none text-reset">
+                            <a th:href="@{|/updateStudent/${student.id}|}" class="col-2 text-decoration-none text-reset">
                                 <i class="fa-solid fa-user-pen"></i>
                             </a>
                         </div>
