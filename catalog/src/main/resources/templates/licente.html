@@ -46,7 +46,9 @@
             <li class="text-center" th:each="programStudiu : ${programeStudiuDPM}">
               <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
               <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
-                <li class="list-group-item" th:text="${programStudiu.nume}"></li>
+                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}">
+                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Anul ' + ${i}"></a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -65,7 +67,9 @@
             <li class="text-center" th:each="programStudiu : ${programeStudiuMED}">
               <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
               <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
-                <li class="list-group-item" th:text="${programStudiu.nume}"></li>
+                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}">
+                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Anul ' + ${i}"></a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -84,7 +88,9 @@
             <li class="text-center" th:each="programStudiu : ${programeStudiuECO}">
               <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
               <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
-                <li class="list-group-item" th:text="${programStudiu.nume}"></li>
+                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}">
+                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Anul ' + ${i}"></a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -103,7 +109,9 @@
             <li class="text-center" th:each="programStudiu : ${programeStudiuMuzica}">
               <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
               <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
-                <li class="list-group-item" th:text="${programStudiu.nume}"></li>
+                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}">
+                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Anul ' + ${i}"></a>
+                </li>
               </ul>
             </li>
           </ul>

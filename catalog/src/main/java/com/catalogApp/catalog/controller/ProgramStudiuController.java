@@ -25,7 +25,7 @@ public class ProgramStudiuController {
     @PostMapping("/save_programStudiu")
     public String saveProgramStudii(ProgramStudiu programStudiu){
         programStudiuService.saveProgramStudiu(programStudiu);
-        return("redirect:/programeStudiu");
+        return("redirect:/programStudiu_form");
     }
     @GetMapping("/programeStudii")
     public String programeStudii(Model model){
