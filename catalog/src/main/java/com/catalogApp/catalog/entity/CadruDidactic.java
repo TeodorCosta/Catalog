@@ -32,7 +32,7 @@ public class CadruDidactic {
     private String post;
 
     public String fullName(){
-        return this.nume +" "+ this.titlu + ". " + this.prenume;
+        return this.titlu + ". " + this.nume + " " + this.prenume;
     }
 
 }

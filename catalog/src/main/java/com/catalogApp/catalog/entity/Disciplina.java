@@ -33,5 +33,5 @@ public class Disciplina {
     @ManyToOne
     private ProgramStudiu programStudiu;
 
-    private Integer sem;
+    private Integer semestru;
 }

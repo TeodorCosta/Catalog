@@ -35,7 +35,7 @@ public class Student {
 
     private String ciclu;
 
-    private Float medie;
+    private Float medieDeIntrare;
 
     private Integer an;
 
