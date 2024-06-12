@@ -5,6 +5,8 @@
     border-radius: 5px;
     font-size: 40px;
 }
+
+
 .ptdiv{ padding: 15px;
             border-radius: 5px;
             color: white;
@@ -67,3 +69,23 @@
       color: white;
       border-radius: 5px;
        font-size:25px;}
+ .licentabuton {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         padding: 25px;
+         border-radius: 5px;
+         font-size: 20px;
+         background-color: #ADE8F4;
+         margin-right: 15px;
+         margin-bottom: 20px;
+     }
+     .custom-label {
+         color: black;
+         margin-left: 65px;
+
+     }
+     .custom-checkbox {
+         width: 20px;
+         height: 20px;
+     }

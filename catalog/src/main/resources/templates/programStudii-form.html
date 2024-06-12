@@ -21,10 +21,7 @@
       <label for="prenume" class="form-label">Durata</label>
       <input type="number" class="form-control" id="prenume" name="prenume" th:field="*{durata}" required>
     </div>
-    <div>
-      <input class="form-check-input" type="checkbox" th:field="*{licenta}" id="option-weekend" value="true">
-      <label class="form-check-label" for="option-weekend" style="color:red;">Licenta</label>
-    </div>
+
     <div class="mb-3 bm6 ptdiv">
       <label for="post" class="form-label">Facultate</label>
       <select class="form-control" id="post" name="post" th:field="*{facultate}" required>
@@ -35,11 +32,25 @@
         <option value="Med">Medicină</option>
       </select>
     </div>
+    <div class="licentabuton">
+
+      <input class="form-check-input custom-checkbox" type="checkbox" th:field="*{licenta}" id="option-weekend" value="true"><div class="box">
+      <label class="form-check-label custom-label" for="option-weekend" >Licență</label>
+    </div>
+    </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-</div>
+
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('option-weekend').addEventListener('change', function () {
+          alert('Checkbox changed!');
+      });
+  });
+</script>
+</div>>
 </body>
 </html>
