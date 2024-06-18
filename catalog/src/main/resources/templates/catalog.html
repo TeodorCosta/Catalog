@@ -15,12 +15,14 @@
   <tr>
     <th>Disciplina</th>
     <th>Nota</th>
+    <th>Credite</th>
   </tr>
   </thead>
   <tbody>
   <tr th:each="nota : ${student.discipline}">
     <td th:text="${nota.disciplina.materie}"></td>
     <td th:text="${nota.valoare}"></td>
+    <td th:text="${nota.disciplina.credite}"></td>
   </tr>
   </tbody>
 </table>
