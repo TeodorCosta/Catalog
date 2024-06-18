@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Builder
@@ -38,6 +39,9 @@ public class Student {
     private Float medieDeIntrare;
 
     private Integer an;
+
+    @OneToMany(mappedBy = "student")
+    private List<Nota> discipline;
 
     @ManyToOne
     private ProgramStudiu programStudiu;

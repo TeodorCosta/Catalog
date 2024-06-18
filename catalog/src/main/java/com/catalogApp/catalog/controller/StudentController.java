@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Controller
 public class StudentController {
@@ -40,6 +41,18 @@ public class StudentController {
         model.addAttribute("studenti",studenti);
         return "studenti";
     }
+    @GetMapping("/program/{id}/an{an}")
+    public String studentiAn(Model model, @PathVariable UUID id, @PathVariable Integer an) {
+        List<Student> studenti = studentService.getStudentiByProgramStudiuAndAn(id, an);
+        model.addAttribute("studenti", studenti);
+        return "studenti";
+    }
+    @GetMapping("/catalog/{id}")
+    public String catalog(Model model,@PathVariable UUID id){
+        Student student = studentService.getStudentById(id);
+        model.addAttribute("student",student);
+        return "catalog";
+    }
 
     @GetMapping("/deleteStudent/{id}")
     public String deleteStudent(@PathVariable UUID id) {
@@ -52,6 +65,8 @@ public class StudentController {
         model.addAttribute("student",studentService.getStudentById(id));
         return "student-form";
     }
+
+
 
 
 

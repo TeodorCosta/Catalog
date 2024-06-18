@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 
+import java.util.List;
 import java.util.UUID;
 
 @Builder
@@ -20,6 +21,7 @@ public class Disciplina {
     private UUID id;
 
     private String codulDisciplinei;
+
     private String materie;
 
     private String acronim;
@@ -28,7 +30,8 @@ public class Disciplina {
 
     private Integer an;
 
-
+    @OneToMany(mappedBy = "disciplina")
+    private List<Nota> studenti;
 
     @ManyToOne
     private ProgramStudiu programStudiu;
