@@ -11,7 +11,7 @@
 
 <body>
 <div class="container mt-5" layout:fragment="content">
-  <h2 class="text-center">Programe de Licența</h2>
+  <h2 class="text-center">Programe de Licență</h2>
   <div class="accordion" id="accordionExample">
 
     <!-- Section for IESC Faculty -->
@@ -26,17 +26,16 @@
               <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
               <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
                 <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}">
-                  <span th:text="'Anul ' + ${i}" class="custom-link"></span>
-                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Studenti '"></a>
-                  <a th:href="'/catalog/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Catalog '"></a>
+                  <span th:text="'Anul ' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block;"></span>
+                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block;" class="custom-link" th:text="'Studenți '"></a>
+                  <a th:href="'/catalog/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block;" class="custom-link" th:text="'Catalog '"></a>
                 </li>
               </ul>
-            </l>
-        </dli>
-          </uiv>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-
 
     <!-- Section for DPM Faculty -->
     <div class="card">
@@ -50,9 +49,9 @@
               <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
               <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
                 <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}">
-                  <span th:text="'Anul ' + ${i}" class="custom-link"></span>
-                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Studenti '"></a>
-                  <a th:href="'/catalog/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Catalog '"></a>
+                  <span th:text="'Anul ' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block;"></span>
+                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block;" class="custom-link" th:text="'Studenți '"></a>
+                  <a th:href="'/catalog/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block;" class="custom-link" th:text="'Catalog '"></a>
                 </li>
               </ul>
             </li>
@@ -73,9 +72,9 @@
               <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
               <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
                 <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}">
-                  <span th:text="'Anul ' + ${i}" class="custom-link"></span>
-                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Studenti '"></a>
-                  <a th:href="'/catalog/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Catalog '"></a>
+                  <span th:text="'Anul ' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block;"></span>
+                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block;" class="custom-link" th:text="'Studenți '"></a>
+                  <a th:href="'/catalog/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block;" class="custom-link" th:text="'Catalog '"></a>
                 </li>
               </ul>
             </li>
@@ -96,52 +95,5 @@
               <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
               <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
                 <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}">
-                  <span th:text="'Anul ' + ${i}" class="custom-link"></span>
-                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Studenti '"></a>
-                  <a th:href="'/catalog/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Catalog '"></a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section for Muzica Faculty -->
-    <div class="card">
-      <div class="card-header2 bm3 ptdiv" id="headingFive" data-toggle="collapse" data-target="#collapseMuzica" aria-expanded="false" aria-controls="collapseMuzica">
-        <h5 class="mb-0 text-center">Muzică</h5>
-      </div>
-      <div id="collapseMuzica" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-        <div class="card-body">
-          <ul class="list-unstyled ptdiv">
-            <li class="text-center" th:each="programStudiu : ${programeStudiuMuzica}">
-              <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
-              <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
-                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}">
-                  <span th:text="'Anul ' + ${i}" class="custom-link"></span>
-                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Studenti '"></a>
-                  <a th:href="'/catalog/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Catalog '"></a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <a th:href="@{/programStudiu_form}" class="custom-link">
-      <div class="card-header2 bm3 ptdiv">
-          <h5 class="mb-0 text-center">Adauga Program</h5>
-      </div>
-      </a>
-    </div>
-  </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+                  <span th:text="'Anul ' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block;"></span>
+                  <a th:href="'/program/' + ${programStudiu.id} + '/an
