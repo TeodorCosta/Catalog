@@ -6,24 +6,46 @@
   <title>Student Nume Intreg</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/d7ca018e94.js" crossorigin="anonymous"></script>
+  <style>
+    .container {
+      margin-top: 50px;
+    }
+    h1 {
+      text-align: center;
+      color: blue;
+    }
+    table {
+      margin-top: 20px;
+      color: blue;
+    }
+    th, td {
+      text-align: center;
+    }
+    thead {
+      background-color: #007bff;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-<div layout:fragment="content">
-<h1>Catalog for <span th:text="${student.fullName()}"></span></h1>
-<table border="1">
-  <thead>
-  <tr>
-    <th>Disciplina</th>
-    <th>Nota</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each="nota : ${student.discipline}">
-    <td th:text="${nota.disciplina.materie}"></td>
-    <td th:text="${nota.valoare}"></td>
-  </tr>
-  </tbody>
-</table>
+<div layout:fragment="content" class="container">
+  <h1>Catalog for <span th:text="${student.fullName()}"></span></h1>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Disciplina</th>
+        <th>Nota</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="nota : ${student.discipline}">
+        <td th:text="${nota.disciplina.materie}"></td>
+        <td th:text="${nota.valoare}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
