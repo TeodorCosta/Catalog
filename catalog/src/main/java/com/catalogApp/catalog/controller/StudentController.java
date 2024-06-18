@@ -53,6 +53,12 @@ public class StudentController {
         model.addAttribute("student",student);
         return "catalog";
     }
+    @GetMapping("/catalog/{id}/an{an}")
+    public String catalog(Model model, @PathVariable UUID id, @PathVariable Integer an) {
+        List<Student> studenti = studentService.getStudentiByProgramStudiuAndAn(id, an);
+        model.addAttribute("studenti", studenti);
+        return "catalog-mare";
+    }
 
     @GetMapping("/deleteStudent/{id}")
     public String deleteStudent(@PathVariable UUID id) {
