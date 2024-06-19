@@ -1,5 +1,6 @@
 package com.catalogApp.catalog.controller;
 
+import com.catalogApp.catalog.entity.Nota;
 import com.catalogApp.catalog.entity.Student;
 import com.catalogApp.catalog.service.ProgramStudiuService;
 import com.catalogApp.catalog.service.StudentService;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -48,9 +50,17 @@ public class StudentController {
         return "studenti";
     }
     @GetMapping("/catalog/{id}")
-    public String catalog(Model model,@PathVariable UUID id){
+    public String catalog(Model model, @PathVariable UUID id) {
         Student student = studentService.getStudentById(id);
-        model.addAttribute("student",student);
+
+        // Group by year
+        Map<Integer, Map<Integer, List<Nota>>> groupedByYearAndSemester = student.getDiscipline().stream()
+                .collect(Collectors.groupingBy(nota -> nota.getDisciplina().getAn(),
+                        Collectors.groupingBy(nota -> nota.getDisciplina().getSemestru())));
+
+        model.addAttribute("student", student);
+        model.addAttribute("groupedByYearAndSemester", groupedByYearAndSemester);
+
         return "catalog";
     }
     @GetMapping("/catalog/{id}/an{an}")

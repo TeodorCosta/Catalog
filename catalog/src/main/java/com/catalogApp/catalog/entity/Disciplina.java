@@ -36,5 +36,9 @@ public class Disciplina {
     @ManyToOne
     private ProgramStudiu programStudiu;
 
+    @ManyToOne
+    @JoinColumn(name="cadruDidactic_id")
+    private CadruDidactic cadruDidactic;
+
     private Integer semestru;
 }

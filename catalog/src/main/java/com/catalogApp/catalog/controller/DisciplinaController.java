@@ -1,6 +1,7 @@
 package com.catalogApp.catalog.controller;
 
 import com.catalogApp.catalog.entity.Disciplina;
+import com.catalogApp.catalog.service.CadruDidacticService;
 import com.catalogApp.catalog.service.DisciplinaService;
 import com.catalogApp.catalog.service.ProgramStudiuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +20,14 @@ public class DisciplinaController {
 
     @Autowired
     ProgramStudiuService programStudiuService;
+    @Autowired
+    CadruDidacticService cadruDidacticService;
 
     @GetMapping("/disciplina_form")
     public String disciplinaForm(Model model) {
         model.addAttribute("disciplina", new Disciplina());
         model.addAttribute("programeStudiu", programStudiuService.getProgrameStudiu());
+        model.addAttribute("cadreDidactice",cadruDidacticService.getcadreDidactice());
         return "disciplina-form";
     }
     @PostMapping("/save_disciplina")

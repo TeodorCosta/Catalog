@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 
+import java.util.List;
 import java.util.UUID;
 
 @Builder
@@ -30,6 +31,7 @@ public class CadruDidactic {
     private String titlu;
 
     private String post;
+
 
     public String fullName(){
         return this.titlu + ". " + this.nume + " " + this.prenume;
