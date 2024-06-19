@@ -39,6 +39,8 @@ public class Student {
 
     private Integer an;
 
+    public String grupa;
+
     @ManyToOne
     private ProgramStudiu programStudiu;
 

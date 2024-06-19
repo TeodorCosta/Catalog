@@ -30,9 +30,42 @@ public class StudentController {
     }
     @PostMapping("/save_student")
     public String saveStudent(Student student) {
+        // Setează anul studentului (de exemplu, pentru anul 1)
         student.setAn(1);
-       studentService.saveStudent(student);
-        return ("redirect:/studenti");
+
+        // Generare grupă conform cerințelor
+        String grupa = generateGrupa(student);
+        student.setGrupa(grupa);
+
+        // Salvare student
+        studentService.saveStudent(student);
+
+        return "redirect:/studenti";
+    }
+    private String generateGrupa(Student student) {
+        // Extract relevant information for group generation
+        boolean isLicenta = student.getProgramStudiu().isLicenta();
+        int anAdmitere = student.getAn() % 10;
+
+        // Determine the last digit based on medieDeIntrare (average entrance grade)
+        int lastDigit=0;
+        float medie = student.getMedieDeIntrare();
+
+        if (medie >= 9.5) {
+            lastDigit = 1;
+        } else if (medie >= 9) {
+            lastDigit = 2;
+        } else if (medie >= 8.5) {
+            lastDigit = 3;
+        } else if (medie >= 8) {
+            lastDigit = 4;
+        }
+
+
+        // Build the group code according to the requirements
+        String grupa = student.getProgramStudiu().getDurata() + "F" + student.getProgramStudiu().getId() + anAdmitere + lastDigit;
+
+        return grupa;
     }
     @GetMapping("/studenti")
     public String studenti(Model model) {
