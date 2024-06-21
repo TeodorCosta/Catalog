@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 
+import java.util.List;
 import java.util.UUID;
 
 @Builder
@@ -30,8 +31,15 @@ public class Disciplina {
 
 
 
+    @OneToMany(mappedBy = "disciplina")
+    private List<Nota> studenti;
+
     @ManyToOne
     private ProgramStudiu programStudiu;
+
+    @ManyToOne
+    @JoinColumn(name="cadruDidactic_id")
+    private CadruDidactic cadruDidactic;
 
     private Integer semestru;
 }

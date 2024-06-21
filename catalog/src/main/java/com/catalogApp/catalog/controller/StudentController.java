@@ -1,5 +1,6 @@
 package com.catalogApp.catalog.controller;
 
+import com.catalogApp.catalog.entity.Nota;
 import com.catalogApp.catalog.entity.Student;
 import com.catalogApp.catalog.service.ProgramStudiuService;
 import com.catalogApp.catalog.service.StudentService;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Controller
 public class StudentController {
@@ -43,11 +46,15 @@ public class StudentController {
         return "redirect:/studenti";
     }
     private String generateGrupa(Student student) {
-        // Extract relevant information for group generation
-        boolean isLicenta = student.getProgramStudiu().isLicenta();
-        int anAdmitere = student.getAn() % 10;
+        String tip;
+       if(student.getProgramStudiu().isLicenta()==true){
+           tip="L";
+       }
+          else tip="M";
 
-        // Determine the last digit based on medieDeIntrare (average entrance grade)
+        int anAdmitere = student.getAn() % 10;
+        String programStudiuDurata = String.valueOf(student.getProgramStudiu().getDurata());
+        String programStudiuId = String.valueOf(student.getProgramStudiu().getId());
         int lastDigit=0;
         float medie = student.getMedieDeIntrare();
 
@@ -61,9 +68,15 @@ public class StudentController {
             lastDigit = 4;
         }
 
+        StringBuilder grupaBuilder = new StringBuilder();
+        grupaBuilder.append(programStudiuDurata)
+                .append(tip)
+                .append("F")
+                .append(programStudiuId)
+                .append(anAdmitere)
+                .append(lastDigit);
 
-        // Build the group code according to the requirements
-        String grupa = student.getProgramStudiu().getDurata() + "F" + student.getProgramStudiu().getId() + anAdmitere + lastDigit;
+        String grupa = grupaBuilder.toString();
 
         return grupa;
     }
@@ -84,6 +97,32 @@ public class StudentController {
     public String updateStudent(@PathVariable UUID id, Model model) {
         model.addAttribute("student",studentService.getStudentById(id));
         return "student-form";
+    }
+    @GetMapping("/program/{id}/an{an}")
+    public String studentiAn(Model model, @PathVariable Integer id, @PathVariable Integer an) {
+        List<Student> studenti = studentService.getStudentiByProgramStudiuAndAn(id, an);
+        model.addAttribute("studenti", studenti);
+        return "studenti";
+    }
+    @GetMapping("/catalog/{id}")
+    public String catalog(Model model, @PathVariable UUID id) {
+        Student student = studentService.getStudentById(id);
+
+        // Group by year
+        Map<Integer, Map<Integer, List<Nota>>> groupedByYearAndSemester = student.getDiscipline().stream()
+                .collect(Collectors.groupingBy(nota -> nota.getDisciplina().getAn(),
+                        Collectors.groupingBy(nota -> nota.getDisciplina().getSemestru())));
+
+        model.addAttribute("student", student);
+        model.addAttribute("groupedByYearAndSemester", groupedByYearAndSemester);
+
+        return "catalog";
+    }
+    @GetMapping("/catalog/{id}/an{an}")
+    public String catalog(Model model, @PathVariable Integer id, @PathVariable Integer an) {
+        List<Student> studenti = studentService.getStudentiByProgramStudiuAndAn(id, an);
+        model.addAttribute("studenti", studenti);
+        return "catalog-mare";
     }
 
 

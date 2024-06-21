@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class StudentService {
@@ -24,6 +25,11 @@ public class StudentService {
     public Student getStudentById(UUID id){
         return studentRepository.getReferenceById(id);
 
+    }
+    public List<Student> getStudentiByProgramStudiuAndAn(Integer programStudiuId, Integer an) {
+        return studentRepository.findAll().stream()
+                .filter(student -> student.getProgramStudiu().getId().equals(programStudiuId) && student.getAn().equals(an))
+                .collect(Collectors.toList());
     }
 
     public void deleteStudent(UUID id){
