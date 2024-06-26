@@ -1,5 +1,6 @@
 package com.catalogApp.catalog.service;
 
+import com.catalogApp.catalog.entity.Nota;
 import com.catalogApp.catalog.entity.Student;
 import com.catalogApp.catalog.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,7 @@ public class StudentService {
     public void deleteStudent(UUID id){
         studentRepository.deleteById(id);
     }
+
+
 
 }

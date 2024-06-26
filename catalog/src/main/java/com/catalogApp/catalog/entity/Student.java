@@ -52,4 +52,24 @@ public class Student {
         return this.nume +" "+ this.iniT + ". " + this.prenume;
     }
 
+    public float calculateGPAForYear(Student student, int year) {
+        List<Nota> grades = student.getDiscipline();
+        int totalCredits = 0;
+        float weightedSum = 0.0f;
+
+        for (Nota nota : grades) {
+            if (nota.getDisciplina().getAn() == year) { // Check if the course is in the given year
+                float grade = nota.getValoare();
+                int credits = nota.getDisciplina().getCredite();
+                weightedSum += grade * credits;
+                totalCredits += credits;
+            }
+        }
+
+        if (totalCredits == 60) { // Ensure the total credits are 60
+            return weightedSum / totalCredits;
+        }
+        else return 0;
+    }
+
 }

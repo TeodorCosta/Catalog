@@ -45,6 +45,9 @@
         </table>
       </div>
     </div>
+
+    <!-- Display GPA for the current yearEntry.key -->
+    <div>Medie:<span th:text="${student.calculateGPAForYear(student, yearEntry.key)}"></span></div>
   </div>
 
 </div>
