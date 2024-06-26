@@ -40,9 +40,6 @@ public class Student {
 
     private Integer an;
 
-
-    public String grupa;
-
     @OneToMany(mappedBy = "student")
     private List<Nota> discipline;
 

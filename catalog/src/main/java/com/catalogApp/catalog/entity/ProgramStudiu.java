@@ -15,8 +15,8 @@ import java.util.UUID;
 public class ProgramStudiu {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
     private boolean licenta;
 
