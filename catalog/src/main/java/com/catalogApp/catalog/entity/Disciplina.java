@@ -33,6 +33,9 @@ public class Disciplina {
     @OneToMany(mappedBy = "disciplina")
     private List<Nota> studenti;
 
+    @OneToMany(mappedBy = "disciplina")
+    private List<Nota> studenti;
+
     @ManyToOne
     private ProgramStudiu programStudiu;
 
