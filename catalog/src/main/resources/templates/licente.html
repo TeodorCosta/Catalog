@@ -24,8 +24,10 @@
             <li class="text-center" th:each="programStudiu : ${programeStudiuIESC}">
               <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
               <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
-                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}">
-                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Anul ' + ${i}"></a>
+                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}" style="margin-bottom: 10px;">
+                  <span th:text="'Anul ' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block; transition: background-color 0.3s ease; color: #007bff;"></span>
+                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block; transition: background-color 0.3s ease; color: #007bff;" onmouseover="this.style.backgroundColor='rgba(0, 123, 255, 0.1)';" onmouseout="this.style.backgroundColor='';" th:text="'Studenți '"></a>
+                  <a th:href="'/catalog/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block; transition: background-color 0.3s ease; color: #007bff;" onmouseover="this.style.backgroundColor='rgba(0, 123, 255, 0.1)';" onmouseout="this.style.backgroundColor='';" th:text="'Catalog '"></a>
                 </li>
               </ul>
             </li>
@@ -46,8 +48,10 @@
             <li class="text-center" th:each="programStudiu : ${programeStudiuDPM}">
               <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
               <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
-                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}">
-                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Anul ' + ${i}"></a>
+                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}" style="margin-bottom: 10px;">
+                  <span th:text="'Anul ' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block; transition: background-color 0.3s ease; color: #007bff;"></span>
+                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block; transition: background-color 0.3s ease; color: #007bff;" onmouseover="this.style.backgroundColor='rgba(0, 123, 255, 0.1)';" onmouseout="this.style.backgroundColor='';" th:text="'Studenți '"></a>
+                  <a th:href="'/catalog/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block; transition: background-color 0.3s ease; color: #007bff;" onmouseover="this.style.backgroundColor='rgba(0, 123, 255, 0.1)';" onmouseout="this.style.backgroundColor='';" th:text="'Catalog '"></a>
                 </li>
               </ul>
             </li>
@@ -67,8 +71,10 @@
             <li class="text-center" th:each="programStudiu : ${programeStudiuMED}">
               <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
               <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
-                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}">
-                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Anul ' + ${i}"></a>
+                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}" style="margin-bottom: 10px;">
+                  <span th:text="'Anul ' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block; transition: background-color 0.3s ease; color: #007bff;"></span>
+                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block; transition: background-color 0.3s ease; color: #007bff;" onmouseover="this.style.backgroundColor='rgba(0, 123, 255, 0.1)';" onmouseout="this.style.backgroundColor='';" th:text="'Studenți '"></a>
+                  <a th:href="'/catalog/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block; transition: background-color 0.3s ease; color: #007bff;" onmouseover="this.style.backgroundColor='rgba(0, 123, 255, 0.1)';" onmouseout="this.style.backgroundColor='';" th:text="'Catalog '"></a>
                 </li>
               </ul>
             </li>
@@ -88,8 +94,10 @@
             <li class="text-center" th:each="programStudiu : ${programeStudiuECO}">
               <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
               <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
-                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}">
-                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Anul ' + ${i}"></a>
+                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}" style="margin-bottom: 10px;">
+                  <span th:text="'Anul ' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block; transition: background-color 0.3s ease; color: #007bff;"></span>
+                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block; transition: background-color 0.3s ease; color: #007bff;" onmouseover="this.style.backgroundColor='rgba(0, 123, 255, 0.1)';" onmouseout="this.style.backgroundColor='';" th:text="'Studenți '"></a>
+                  <a th:href="'/catalog/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block; transition: background-color 0.3s ease; color: #007bff;" onmouseover="this.style.backgroundColor='rgba(0, 123, 255, 0.1)';" onmouseout="this.style.backgroundColor='';" th:text="'Catalog '"></a>
                 </li>
               </ul>
             </li>
@@ -109,8 +117,10 @@
             <li class="text-center" th:each="programStudiu : ${programeStudiuMuzica}">
               <a th:href="'#' + ${programStudiu.nume.replace(' ', '')}" data-toggle="collapse" aria-expanded="false" th:aria-controls="${programStudiu.nume.replace(' ', '')}" class="custom-link" th:text="${programStudiu.nume}"></a>
               <ul class="list-group collapse" th:id="${programStudiu.nume.replace(' ', '')}">
-                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}">
-                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" class="custom-link" th:text="'Anul ' + ${i}"></a>
+                <li class="list-group-item" th:each="i : ${#numbers.sequence(1, programStudiu.durata)}" style="margin-bottom: 10px;">
+                  <span th:text="'Anul ' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block; transition: background-color 0.3s ease; color: #007bff;"></span>
+                  <a th:href="'/program/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block; transition: background-color 0.3s ease; color: #007bff;" onmouseover="this.style.backgroundColor='rgba(0, 123, 255, 0.1)';" onmouseout="this.style.backgroundColor='';" th:text="'Studenți '"></a>
+                  <a th:href="'/catalog/' + ${programStudiu.id} + '/an' + ${i}" style="margin-right: 15px; padding: 10px 15px; display: inline-block; transition: background-color 0.3s ease; color: #007bff;" onmouseover="this.style.backgroundColor='rgba(0, 123, 255, 0.1)';" onmouseout="this.style.backgroundColor='';" th:text="'Catalog '"></a>
                 </li>
               </ul>
             </li>

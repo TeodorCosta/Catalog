@@ -2,6 +2,7 @@ package com.catalogApp.catalog.controller;
 
 
 import com.catalogApp.catalog.entity.CadruDidactic;
+import com.catalogApp.catalog.entity.Student;
 import org.springframework.ui.Model;
 import com.catalogApp.catalog.service.CadruDidacticService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Controller
 
@@ -34,6 +38,13 @@ public class CadruDidacticController {
 
         return "redirect:/cadreDidactice";
 
+    }
+    @GetMapping("/cadruDidactic-search-nume")
+    public String cadruDidacticSearchNume(Model model, @RequestParam("searchItem") String searchItem) {
+        List<CadruDidactic>searchResults = cadruDidacticService.findCadruDidacticByName(searchItem);
+        model.addAttribute("results", searchResults);
+        model.addAttribute("query", searchItem);
+        return "cadreDidactice-results";
     }
 
     @GetMapping("/cadreDidactice")

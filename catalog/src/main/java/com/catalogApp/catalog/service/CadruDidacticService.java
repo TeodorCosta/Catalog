@@ -27,6 +27,9 @@ public class CadruDidacticService {
         return cadruDidacticRepository.findAll();
 
     }
+    public List<CadruDidactic> findCadruDidacticByName(String name) {
+        return cadruDidacticRepository.findByNumeContainingIgnoreCaseOrPrenumeContainingIgnoreCase(name,name);
+    }
 
     public void delete_cadruDidactic(UUID id){
         cadruDidacticRepository.deleteById(id);
