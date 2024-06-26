@@ -34,6 +34,12 @@
                 <option th:each="programStudiu : ${programeStudiu}" th:value="${programStudiu.id}" th:text="${programStudiu.nume}"></option>
             </select>
         </div>
+        <div class="mb-3 bm7 ptdiv">
+            <label for="programStudiu" class="form-label">Cadru Didactic</label>
+            <select class="form-control" id="cadruDidactic" name="cadruDidactic" th:field="*{cadruDidactic}" required>
+                <option th:each="cadruDidactic : ${cadreDidactice}" th:value="${cadruDidactic.id}" th:text="${cadruDidactic.fullName}"></option>
+            </select>
+        </div>
         <div class="mb-3 bm4 ptdiv">
             <label for="iniT" class="form-label">An</label>
             <input type="number" class="form-control" id="an" name="iniT" th:field="*{an}" required>

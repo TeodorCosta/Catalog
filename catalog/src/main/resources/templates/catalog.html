@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layouts/dashboard}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Nume Intreg</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/d7ca018e94.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" th:href="@{/student-form.css}" />
+</head>
+<body>
+<div layout:fragment="content" class="container">
+  <h1>Notele lui <span th:text="${student.fullName()}"></span></h1>
+
+  <div th:each="yearEntry : ${groupedByYearAndSemester}">
+    <h2 th:text="'Anul ' + ${yearEntry.key}"></h2>
+
+    <div th:each="semesterEntry : ${yearEntry.value}">
+      <h3 th:text="'Semestrul ' + ${semesterEntry.key}"></h3>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead class="bm3">
+          <tr>
+            <th class="mb-0 text-center col-6 ptdiv">Disciplina</th>
+            <th class="mb-0 text-center col-2 ptdiv">Nota</th>
+            <th class="mb-0 text-center col-2 ptdiv">Credite</th>
+            <th class="mb-0 text-center col-2 ptdiv">Status</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="nota : ${semesterEntry.value}">
+            <td th:text="${nota.disciplina.materie}" class="mb-0 text-center col-6"></td>
+            <td th:text="${nota.valoare}" class="mb-0 text-center col-2"></td>
+            <td th:text="${nota.disciplina.credite}" class="mb-0 text-center col-2"></td>
+            <td class="mb-0 text-center col-2">
+              <span th:if="${nota.valoare >= 5}" class="text-success">
+                <i class="fas fa-check"></i>
+              </span>
+              <span th:if="${nota.valoare < 5}" class="text-danger">
+                <i class="fas fa-times"></i>
+              </span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

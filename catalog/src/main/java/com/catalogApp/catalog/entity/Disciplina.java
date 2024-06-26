@@ -21,6 +21,7 @@ public class Disciplina {
     private UUID id;
 
     private String codulDisciplinei;
+
     private String materie;
 
     private String acronim;
@@ -29,7 +30,8 @@ public class Disciplina {
 
     private Integer an;
 
-
+    @OneToMany(mappedBy = "disciplina")
+    private List<Nota> studenti;
 
     @OneToMany(mappedBy = "disciplina")
     private List<Nota> studenti;

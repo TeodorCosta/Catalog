@@ -116,6 +116,32 @@ public class StudentController {
         model.addAttribute("uniqueGrupe", uniqueGrupe);
         return "studenti";
     }
+    @GetMapping("/program/{id}/an{an}")
+    public String studentiAn(Model model, @PathVariable UUID id, @PathVariable Integer an) {
+        List<Student> studenti = studentService.getStudentiByProgramStudiuAndAn(id, an);
+        model.addAttribute("studenti", studenti);
+        return "studenti";
+    }
+    @GetMapping("/catalog/{id}")
+    public String catalog(Model model, @PathVariable UUID id) {
+        Student student = studentService.getStudentById(id);
+
+        // Group by year
+        Map<Integer, Map<Integer, List<Nota>>> groupedByYearAndSemester = student.getDiscipline().stream()
+                .collect(Collectors.groupingBy(nota -> nota.getDisciplina().getAn(),
+                        Collectors.groupingBy(nota -> nota.getDisciplina().getSemestru())));
+
+        model.addAttribute("student", student);
+        model.addAttribute("groupedByYearAndSemester", groupedByYearAndSemester);
+
+        return "catalog";
+    }
+    @GetMapping("/catalog/{id}/an{an}")
+    public String catalog(Model model, @PathVariable UUID id, @PathVariable Integer an) {
+        List<Student> studenti = studentService.getStudentiByProgramStudiuAndAn(id, an);
+        model.addAttribute("studenti", studenti);
+        return "catalog-mare";
+    }
 
     @GetMapping("/deleteStudent/{id}")
     public String deleteStudent(@PathVariable UUID id) {
@@ -158,6 +184,8 @@ public class StudentController {
         model.addAttribute("studenti", studenti);
         return "catalog-mare";
     }
+
+
 
 
 

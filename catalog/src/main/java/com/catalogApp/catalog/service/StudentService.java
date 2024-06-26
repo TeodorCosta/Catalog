@@ -26,11 +26,14 @@ public class StudentService {
         return studentRepository.getReferenceById(id);
 
     }
+
     public List<Student> getStudentiByProgramStudiuAndAn(Integer programStudiuId, Integer an) {
+
         return studentRepository.findAll().stream()
                 .filter(student -> student.getProgramStudiu().getId().equals(programStudiuId) && student.getAn().equals(an))
                 .collect(Collectors.toList());
     }
+
     public List<Student> findStudentsByName(String name) {
         return studentRepository.findByNumeContainingIgnoreCaseOrPrenumeContainingIgnoreCase(name, name);
     }
