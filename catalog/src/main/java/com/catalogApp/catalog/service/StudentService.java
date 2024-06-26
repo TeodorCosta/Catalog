@@ -31,6 +31,12 @@ public class StudentService {
                 .filter(student -> student.getProgramStudiu().getId().equals(programStudiuId) && student.getAn().equals(an))
                 .collect(Collectors.toList());
     }
+    public List<Student> findStudentsByName(String name) {
+        return studentRepository.findByNumeContainingIgnoreCaseOrPrenumeContainingIgnoreCase(name, name);
+    }
+    public List<Student> findStudentsByGrupa(String grupa) {
+        return studentRepository.findByGrupa(grupa);
+    }
 
     public void deleteStudent(UUID id){
         studentRepository.deleteById(id);

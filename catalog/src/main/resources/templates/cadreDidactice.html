@@ -14,12 +14,10 @@
             <div class="container">
                 <div class="card row" style="margin:7px 3px;">
                     <div class="card-body" style="display:flex; flex-direction: column; align-items: center;">
-                        <form class="requires-validation col-12" action="/search" method="post" style="width: 100%;">
-                            <div class="form-group" style="display: flex; flex-direction: column; width: 100%;">
-                                <input type="text" name="searchItem" placeholder="Nume" value="Nume" class="form-control mb-2" style="flex: 1;">
-                                <button type="submit" class="btn btn-primary" style="flex: 1;">Search nume</button>
-                            </div>
-                        </form>
+                            <form class="requires-validation col" th:action="@{/cadruDidactic-search-nume}" method="get" >
+                                <input type="text" name="searchItem" placeholder="Nume" class="form-control col"  th:value="${searchItem}" required>
+                                <button type="submit" class="btn btn-primary col">Search nume</button>
+                            </form>
                     </div>
                 </div>
             <div th:each="cadruDidactic: ${cadreDidactice}" class="mb-3">
