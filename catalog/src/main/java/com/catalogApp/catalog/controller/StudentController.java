@@ -10,9 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -84,6 +86,34 @@ public class StudentController {
     public String studenti(Model model) {
         List<Student> studenti =studentService.getStudenti();
         model.addAttribute("studenti",studenti);
+        Set<String> uniqueGrupe = studenti.stream()
+                .map(Student::getGrupa)
+                .collect(Collectors.toSet());
+        model.addAttribute("uniqueGrupe", uniqueGrupe);
+        return "studenti";
+    }
+
+    @GetMapping("/studenti-search-nume")
+    public String studentiSearchNume(Model model, @RequestParam("searchItem") String searchItem) {
+        List<Student>searchResults = studentService.findStudentsByName(searchItem);
+        model.addAttribute("results", searchResults);
+        model.addAttribute("query", searchItem);
+        List<Student>studentiToti =studentService.getStudenti();
+        Set<String> uniqueGrupe = studentiToti.stream()
+                .map(Student::getGrupa)
+                .collect(Collectors.toSet());
+        model.addAttribute("uniqueGrupe", uniqueGrupe);
+        return "studenti-results";
+    }
+    @GetMapping("/studenti-search-grupa")
+    public String searchByGrupa(Model model, @RequestParam String post) {
+        List<Student> studenti = studentService.findStudentsByGrupa(post);
+        model.addAttribute("studenti", studenti);
+        List<Student>studentiToti =studentService.getStudenti();
+        Set<String> uniqueGrupe = studentiToti.stream()
+                .map(Student::getGrupa)
+                .collect(Collectors.toSet());
+        model.addAttribute("uniqueGrupe", uniqueGrupe);
         return "studenti";
     }
 
@@ -102,6 +132,10 @@ public class StudentController {
     public String studentiAn(Model model, @PathVariable Integer id, @PathVariable Integer an) {
         List<Student> studenti = studentService.getStudentiByProgramStudiuAndAn(id, an);
         model.addAttribute("studenti", studenti);
+        Set<String> uniqueGrupe = studenti.stream()
+                .map(Student::getGrupa)
+                .collect(Collectors.toSet());
+        model.addAttribute("uniqueGrupe", uniqueGrupe);
         return "studenti";
     }
     @GetMapping("/catalog/{id}")
@@ -119,7 +153,7 @@ public class StudentController {
         return "catalog";
     }
     @GetMapping("/catalog/{id}/an{an}")
-    public String catalog(Model model, @PathVariable Integer id, @PathVariable Integer an) {
+    public String catalogMare(Model model, @PathVariable Integer id, @PathVariable Integer an) {
         List<Student> studenti = studentService.getStudentiByProgramStudiuAndAn(id, an);
         model.addAttribute("studenti", studenti);
         return "catalog-mare";
