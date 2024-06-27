@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Form</title>
+    <title>Formular Disciplină</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/student-form.css}" />
 </head>
 <body>
 <div class="container mt-5" layout:fragment="content">
-    <h2 class="title ">Disciplina Form</h2>
+    <h2 class="title ">Adăugați disciplina:</h2>
     <form class="requires-validation" th:action="@{/save_disciplina}" th:object="${disciplina}" method="post">
         <input class="form-control" type="hidden"  id="id" placeholder="Id" th:field="*{id}">
         <div class="mb-3 bm1 ptdiv">
-            <label for="nrMatricol" class="form-label">Cod Disciplina</label>
+            <label for="nrMatricol" class="form-label">Cod Disciplină</label>
             <input type="text" class="form-control" id="nrMatricol" name="nrMatricol" th:field="*{codulDisciplinei}" required>
         </div>
         <div class="mb-3 bm2 ptdiv">
@@ -45,10 +45,10 @@
             <input type="number" class="form-control" id="an" name="iniT" th:field="*{an}" required>
         </div>
         <div class="mb-3 bm8 ptdiv">
-            <label for="iniT" class="form-label">Semestrul</label>
+            <label for="iniT" class="form-label">Semestru</label>
             <input type="number" class="form-control" id="sem" name="iniT" th:field="*{semestru}" required>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Confirmă</button>
     </form>
 </div>
 
