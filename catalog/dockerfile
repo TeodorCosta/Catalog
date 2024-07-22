@@ -1,0 +1,11 @@
+# Stage 1: Build
+FROM maven:3.8.5-openjdk-17 AS build
+WORKDIR /app
+COPY . /app
+RUN mvn clean install
+
+# Stage 2: Run
+FROM openjdk:17-jdk
+WORKDIR /app
+COPY --from=build /app/target/classes /app
+CMD ["java", "-cp", "classes", "com.catalogApp.catalog.CatalogApplication"]
